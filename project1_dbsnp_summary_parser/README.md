@@ -51,7 +51,6 @@ To get your own input file:
 2. Use Send to → File → Summary to download the summary text file.
 3. Save it in the same folder as the script (or update the filename in the code).
 
-For convenience, this repository also includes an example file in the examples/ folder: snp_result.txt(./examples/snp_result.txt)
-
+For convenience, this repository also includes an example file in the examples/ folder: [snp_result.txt](./examples/snp_result.txt)
 
 This example allows you to test the script immediately without downloading from NCBI.
