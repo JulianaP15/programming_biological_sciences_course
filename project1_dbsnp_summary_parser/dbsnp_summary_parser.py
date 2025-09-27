@@ -27,8 +27,11 @@ import pandas as pd
 
 # ==== Configuration ====
 # Input file: dbSNP summary in plain text format
-dbsnp_summary_file = 'snp_result.txt'
+dbsnp_summary_file = 'examples/snp_result.txt'
+# Output file: TSV file
+output_file = 'examples/dbsnp_summary.tsv'
 
+# ==== Workflow ====
 # Lists to store extracted values for each SNP
 rs_id = []
 variant_type = []
@@ -84,9 +87,7 @@ df = pd.DataFrame({
 })
 
 # Save DataFrame to TSV file (tab-separated)
-df.to_csv('dbsnp_summary.tsv', sep='\t', index=False)
-
-
+df.to_csv(output_file, sep='\t', index=False)
 
 # Print quick length check for all lists
 print(len(rs_id),
