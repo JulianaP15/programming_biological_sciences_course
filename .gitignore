@@ -1,0 +1,66 @@
+# =========================
+# System / OS (macOS)
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+Thumbs.db
+
+# =========================
+# IDEs
+# =========================
+# PyCharm / IntelliJ
+.idea/
+
+# VSCode (por si abres algo allí)
+.vscode/
+*.code-workspace
+
+# =========================
+# Python build / bytecode
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# =========================
+# Virtual environments
+# =========================
+# (usa siempre uno dentro de cada proyecto o en la raíz)
+venv/
+.venv/
+ENV/
+env/
+.python-version  # pyenv
+
+# =========================
+# Jupyter / Notebooks
+# =========================
+.ipynb_checkpoints/
+# Salidas pesadas exportadas
+*.nbconvert.ipynb
+
+# =========================
+# Logs / Cache / Temp
+# =========================
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+.cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Formatos científicos pesados
+# =========================
+# (se suelen versionar con LFS si es necesario)
+*.xlsx
