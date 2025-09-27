@@ -23,4 +23,4 @@ Each folder corresponds to a project where I apply Python to real biological dat
 
 ## 📫 Contact
 👩‍🔬 Author: Juliana Patiño Gallego
-📧 Academic email: your_email@unal.edu.co
+📧 Academic email: jpatinoga@unal.edu.co
