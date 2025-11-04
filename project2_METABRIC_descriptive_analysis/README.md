@@ -67,51 +67,50 @@ output_dir = "figures"
 
 ## Code Explanation
 
-Although the script does not define explicit functions, each block handles a specific task:
+Although everything is in a single script, each block is scoped and documented:
 
-- File reading
-  - Opens the summary file line by line.
-  - Identifies sections corresponding to each SNP.
-
-- Field extraction
-  - `rs_id`: detected in lines starting with rs.
-  - `variant_type`, `allele_ref`, `allele_alt`: parsed from the following line using : and >.
-  - `functional_consequence`: extracted from lines containing Functional Consequence:.
-  - `clinical_significance`: usually found in the next line; marked as not-in-summary if absent.
-
-- Table building
-  - Creates a `DataFrame` with the extracted fields.
-  - Facilitates exporting and analysis.
-
-- Saving results
-  - Exports results to a TSV file (tab-separated).
+- **Global aesthetics & palettes**
+  - Sets a light grid style and uses a consistent color scheme:
+  - Histograms: `lightblue` vs `salmon`
+  - Therapy bars: `seaborn Set2`
+  - Heatmaps: `YlOrBr`
+  - Scatter hue: `viridis`
+- Subtype orders (`pam50_order`, `three_gene_order`) are defined and applied for consistent plots.
+- `save_figure(fig, name, output_dir)` Saves each figure as vector PDF and 300 DPI PNG with tight bounding boxes.
+- **Histogram (Age):** Two overlaid distributions: all patients vs. died of disease + median lines and labels.
+- **Violin plots (Survival by subtype):** Two-panel figure (PAM50 and 3-gene). Each panel layers All patients and Died of disease and overlays per-subtype medians.
+- `cancer_classification_therapy(classification, therapies)`: Computes % of patients receiving each therapy per subtype (wide DataFrame).
+Used to build bar plots for PAM50 and 3-gene.
+- `cancer_n_therapy(classification, therapies)`: Computes % distribution of the number of therapies (0/1/2/3) within each subtype (returns a Series with MultiIndex).
+This is reshaped with `.unstack(fill_value=0)` to plot the heatmaps.
+- **Scatter (Mutation load vs. tumor size):** Colored by tumor stage; legend placed outside to avoid overlap.
 
 ---
 
 ## Output Files
 
-This script will create a file that contains:
-- One row per variant.
-- The following collumns: rs_id, variant_type, allele_ref, allele_alt, functional_consequence, and clinical_significance.
+Each figure is exported twice: PDF (vector, ideal for print) and PNG (300 DPI, web-ready).
+Filenames are prefixed with a numeric order for easy reference in reports:
 
-For demonstration, this repository includes an example output file generated from the example input: [dbsnp_summary.tsv](examples/dbsnp_summary.tsv)
-``` bash
-rs_id    variant_type    allele_ref    allele_alt    functional_consequence                     clinical_significance
-rs12516  SNV             G             A,C,T         3_prime_UTR_variant,non_coding_transcript  benign
-```
-This file shows the expected structure and can be used to verify that the script runs correctly.
-
-When analyzing your own data, update the filename in the script if necessary:
-```bash
-output_file = 'your_output_file.tsv'
-```
+- `01_age_distribution`
+- `02_violin_survival`
+- `03_bar_therapy`
+- `04_heatmap_therapies`
+- `05_scatter_mutations`
 
 ---
 
-## Error Handling
+## Troubleshooting & Notes
 
-- If a field is missing, it is marked as not-in-summary.
-- The script depends on the current dbSNP summary format; major changes may require parser updates.
+- Seaborn warnings with `split=True`:
+Some versions warn when `split=True` is used without `hue`. This script keeps it for visual layering since it works in the current environment.
+
+- Category labels:
+Ensure the values in your dataset match the strings in `pam50_order` and `three_gene_order` (case/spelling).
+If your data use different labels, update those lists.
+
+- CSV schema changes:
+The `dtype={...}` argument in `pd.read_csv` uses **column indices**. If the supplier changes the CSV, adjust those indices to prevent parsing issues.
 
 ---
 
