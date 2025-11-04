@@ -1,8 +1,10 @@
 # Project 2 – METABRIC descriptive analysis
 
 ## Description
+
 This project performs **exploratory analysis** on the METABRIC breast cancer dataset to relate **molecular subtype classifications** (PAM50 and 3-gene classifier) with **patient age, survival, and therapies.**
 It generates a compact set of **publication-ready figures** (PDF + PNG) for quick inspection and reporting.
+
 ---
 
 ## Features
