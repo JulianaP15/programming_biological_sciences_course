@@ -60,7 +60,7 @@ This example allows you to test the script immediately without downloading from 
 ## Usage
 
 1. If you want to test quickly, use the example file included in `examples/snp_result.txt`.
-2. Run the script in the terminal:
+2. Run the [script](./dbsnp_summary_parser.py) in the terminal:
 ```bash
 python dbsnp_summary_parser.py
 ```
