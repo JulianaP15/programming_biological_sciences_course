@@ -10,13 +10,19 @@ Each folder corresponds to a project where I apply Python to real biological dat
 1. **[Project 1 – dbSNP Summary Parser](./project1_dbsnp_summary_parser/)**  
    Read and process dbSNP summary files and transform them into tabular format.
 
+2. **[Project 2 – METABRIC Descriptive Analysis](./project2_METABRIC_descriptive_analysis/)**  
+   Exploratory analysis of the METABRIC breast cancer dataset, linking molecular subtype classifications (PAM50 and 3-gene) with patient age, survival, and therapies.  
+   Generates multiple figures automatically (histograms, violin plots, bar charts, heatmaps, and scatterplots).
+
+
 (More projects will be added as the course progresses.)
 
 ---
 
 ## 🎯 Learning goals
 - Practice Python applied to biological data.  
-- Learn how to handle **non-tabular biological file formats**.  
+- Learn to process both **structured and unstructured** bioinformatics data.
+- Develop skills in **data visualization** and **scientific figure generation**.
 - Use libraries for **data analysis and visualization** (`pandas`, `matplotlib`, `seaborn`, `SciPy`, `Statsmodels`).  
 
 ---
